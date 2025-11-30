@@ -1,0 +1,287 @@
+/* --- GLOBAL STYLES --- */
+* {
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box; /* Penting agar padding tidak merusak ukuran */
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f7f1e6;
+    opacity: 0.7;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;         
+    flex-direction: column; 
+    min-height: 100vh;    
+}
+body.loaded {
+    opacity: 1;
+}
+
+/* HEADER & NAVBAR */
+.top-rectangle {
+    width: 100%;
+    height: 45px;           
+    background: #4d2b14;    
+}
+
+.header {
+    display: flex;
+    justify-content: center;  
+    align-items: center;     
+    margin: 20px 0; 
+}
+
+.navbar {
+    background: #e6d9c8;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;    
+    padding: 0;              
+    font-weight: bold;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #3a2c17;
+    padding: 15px 30px;      
+    background: #cfbfa9;
+    display: flex;           
+    font-size: 25px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;      
+    transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out; 
+}
+
+.navbar a.tes {
+    width: 850px;
+    font-weight: medium;
+}
+
+/* --- SECTION PROMO UTAMA --- */
+.promo-banner {
+    position: relative;
+    width: 100%;
+    flex: 1;           
+    min-height: 700px;  
+    
+    background-color: #d8c8b4;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background Lengkungan Putih (Sisi Kanan) */
+.promo-bg-shape {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65%; /* Area putih mencakup 65% layar kanan */
+    height: 100%;
+    background-color: #f7f1e6; /* Warna terang */
+    border-top-left-radius: 500px; /* Lengkungan besar */
+    border-bottom-left-radius: 100px;
+    z-index: 1; 
+}
+
+/* Background Bean (Biji Kopi) - Perbaikan agar tidak lonjong */
+.bean-bg { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('bean.png'); 
+    background-size: cover;  
+    background-position: center;
+    z-index: 2; 
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+/* Container Konten Utama */
+/* --- UPDATE BAGIAN INI DI CSS --- */
+
+/* Container Konten Utama */
+.promo-content {
+    position: relative;
+    z-index: 3;
+    
+    /* UBAH DISINI: Agar memenuhi lebar layar dari ujung ke ujung */
+    width: 100%; 
+    max-width: 100%; /* Hapus batasan pixel */
+    
+    display: flex;
+    /* Ini kuncinya: Dorong item pertama ke KIRI, item kedua ke KANAN */
+    justify-content: space-between; 
+    align-items: center;
+    
+    /* Beri sedikit jarak dari pinggir layar monitor supaya tidak terpotong */
+    padding: 0 50px; 
+    box-sizing: border-box; 
+}
+
+
+
+/* --- SISANYA TETAP SAMA SEPERTI SEBELUMNYA --- */
+
+/* (Pastikan style di bawah ini tetap ada di file CSS kamu) */
+.product-item {
+    display: flex;
+    align-items: center;
+
+}
+
+.product-item img{
+    width: 750px;
+}
+
+.big-pack {
+    margin-top: 10px;
+    transform: rotate(-3deg); 
+    margin-right: -20px;
+    filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.4));
+}
+
+.small-pack {
+    margin-top: -450px;
+    transform: rotate(3deg);
+    margin-left: -10px;
+    filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.4));
+}
+
+.promo-banner {
+    position: relative;
+    width: 100%;
+    height: 750px;
+    background-color: #d8c8b4;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* ...kode css lainnya... */
+
+
+/* Harga Coret (Hitam) */
+.price-strikethrough {
+    font-size: 40px; 
+    font-weight: 700;
+    color: #1a1a1a;
+    text-decoration: line-through;
+    text-decoration-thickness: 4px;
+    margin-bottom: -25px; /* Rapatkan ke bawah */
+    letter-spacing: -1px;
+}
+
+/* Harga Baru (MERAH MENYALA) */
+.price-final {
+    font-size: 100px; /* UKURAN BESAR */
+    font-weight: 800; /* Sangat Tebal */
+    color: #C71616;   /* Merah Murni */
+    line-height: 1;
+    margin: 5px 0;
+    text-shadow: 2px 2px 0px rgba(255,255,255,0.5); /* Outline tipis biar makin jelas */
+}
+
+/* Hover Efek pada Gambar */
+.promo-img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+/* --- PENGATURAN POSISI TEKS & HARGA --- */
+
+/* 1. AGAR HARGA SEJAJAR KIRI-KANAN */
+.price-row {
+    display: flex;          /* Wajib pakai flex biar sejajar */
+    flex-direction: row;    /* Pastikan arahnya horizontal */
+    align-items: baseline;  /* Supaya rata bawah (garis fontnya sama) */
+    gap: 15px;              /* Jarak antara 25.000 dan 21.000 */
+}
+
+/* 2. ITEM KIRI: TEKS DI PALING BAWAH */
+.tag-left {
+    display: flex;
+    flex-direction: column;
+    margin-top: 500px;      
+    margin-left: -50px;     /* Geser kiri dikit biar nempel gambar */
+    z-index: 10;            /* Pastikan teks di atas gambar */
+}
+
+/* 3. ITEM KANAN: TEKS DI PALING ATAS */
+.tag-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+
+    margin-bottom: 500px;   
+    margin-right: -50px;    
+    z-index: 10;
+}
+
+/* Style Harga Coret */
+.price-strikethrough {
+    font-size: 60px;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-decoration: line-through;
+    text-decoration-thickness: 4px;
+}
+.tag-left h2 {
+    font-size: 55px;
+    margin-top: -5px;
+}
+
+.tag-left h2 .bold {
+    font-weight: 700;   /* bold */
+}
+
+.tag-left h2 .regular {
+    font-weight: 400;   /* regular, bisa ganti 500 untuk medium */
+}
+.tag-right h2 {
+    font-size: 55px;
+    margin-top: -5px;
+}
+
+.tag-right h2 .bold {
+    font-weight: 700;   /* bold */
+}
+
+.tag-right h2 .regular {
+    font-weight: 400;   /* regular, bisa ganti 500 untuk medium */
+}
+
+/* Style Harga Merah */
+.price-final {
+    font-size: 100px;
+    font-weight: 800;
+    color: #C71616;
+    line-height: 1;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: auto;
+    background: #f4ebdc;
+    padding: 25px 0;
+    display: flex;
+    justify-content: left;
+    padding-left: 50px;
+    gap: 60px;
+    font-size: 14px;
+    align-items: center;
+}
+.footer-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.footer-icon {
+    width: 28px;
+    height: auto;
+}
+
